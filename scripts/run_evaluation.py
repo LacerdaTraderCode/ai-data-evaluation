@@ -58,7 +58,9 @@ async def main() -> None:
         print("Set ANTHROPIC_API_KEY to run the judge against the golden set.", file=sys.stderr)
         raise SystemExit(1)
 
-    judge = ClaudeJudge(api_key=api_key, model=os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5"))
+    judge = ClaudeJudge(
+        api_key=api_key, model=os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5")
+    )
     judge_scores = await score_golden_set(judge)
     report = evaluate_agreement(GOLDEN_SET, judge_scores)
     print_agreement_report(report)

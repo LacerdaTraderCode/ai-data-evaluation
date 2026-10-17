@@ -27,7 +27,9 @@ FACTUAL_ACCURACY = Criterion(
     question="Does every claim in the summary hold up against the source?",
     levels=(
         ScoreLevel(0, "Contains a claim that contradicts or is unsupported by the source."),
-        ScoreLevel(1, "No contradictions, but includes an embellishment the source does not state."),
+        ScoreLevel(
+            1, "No contradictions, but includes an embellishment the source does not state."
+        ),
         ScoreLevel(2, "Every claim is directly supported by the source."),
     ),
 )
